@@ -2,6 +2,23 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
 import { twMerge } from "tailwind-merge";
 import { metrics, type GameMetric, SORTED_DATA } from "~/data/countries";
+import { JSON_DATA } from "~/data/json_data_old2";
+
+// Define the Country type based on the new JSON_DATA structure
+export type Country = {
+  Country: string;
+  Population: number;
+  YearlyChangePct: number;
+  NetChange: number;
+  Density: number;
+  LandArea: number;
+  Migrants_net: number;
+  Fertility_rate: number;
+  MedianAge: number;
+  UrbanPopPct: number | null;
+  WorldSharePct: number;
+  Code: string;
+};
 
 type GameMode = "random" | "practice";
 
@@ -31,7 +48,7 @@ function CountryGuessGame() {
     setAnimation("fade-out");
 
     setTimeout(() => {
-      const shuffled = [...countries].sort(() => 0.5 - Math.random());
+      const shuffled = [...JSON_DATA].sort(() => 0.5 - Math.random());
       setCountryPair([shuffled[0], shuffled[1]]);
       setUserGuessed(false);
       setRound((prev) => prev + 1);
@@ -48,7 +65,7 @@ function CountryGuessGame() {
   // Initialize the game
   useEffect(() => {
     setAnimation("fade-in");
-    const shuffled = [...countries].sort(() => 0.5 - Math.random());
+    const shuffled = [...JSON_DATA].sort(() => 0.5 - Math.random());
     setCountryPair([shuffled[0], shuffled[1]]);
 
     // Start with a random metric in random mode
@@ -92,7 +109,7 @@ function CountryGuessGame() {
       setRound(1);
       setStreak(0);
       setIsGameOver(false);
-      const shuffled = [...countries].sort(() => 0.5 - Math.random());
+      const shuffled = [...JSON_DATA].sort(() => 0.5 - Math.random());
       setCountryPair([shuffled[0], shuffled[1]]);
       setUserGuessed(false);
 
@@ -120,7 +137,7 @@ function CountryGuessGame() {
 
     setAnimation("fade-out");
     setTimeout(() => {
-      const shuffled = [...countries].sort(() => 0.5 - Math.random());
+      const shuffled = [...JSON_DATA].sort(() => 0.5 - Math.random());
       setCountryPair([shuffled[0], shuffled[1]]);
       setAnimation("fade-in");
     }, 300);
@@ -244,7 +261,7 @@ function CountryGuessGame() {
               >
                 {countryPair.map((country, index) => (
                   <div
-                    key={country.name}
+                    key={country.Country}
                     onClick={() => handleGuess(index)}
                     className={twMerge(
                       "border-2 rounded-xl p-8 text-center cursor-pointer transition-all transform hover:scale-105 shadow-lg",
@@ -261,12 +278,12 @@ function CountryGuessGame() {
                   >
                     <div className="flex items-center justify-center h-32 mb-6 flex-col">
                       <img
-                        src={`https://flagcdn.com/w160/${country.code.toLowerCase()}.png`}
-                        alt={`Flag of ${country.name}`}
+                        src={`https://flagcdn.com/w160/${country.Code.toLowerCase()}.png`}
+                        alt={`Flag of ${country.Country}`}
                         className="mb-4 rounded shadow-lg w-40 h-auto"
                       />
                       <span className="text-4xl font-bold bg-gradient-to-br from-gray-200 to-gray-400 bg-clip-text text-transparent">
-                        {country.name}
+                        {country.Country}
                       </span>
                     </div>
 
@@ -379,8 +396,8 @@ function CountryGuessGame() {
               <tbody>
                 {SORTED_DATA[tableMetric].map((row, idx) => {
                   // Try to find the code from the countries array
-                  const countryObj = countries.find(
-                    (c) => c.name === row.country
+                  const countryObj = JSON_DATA.find(
+                    (c) => c.Country === row.country
                   );
                   return (
                     <tr
@@ -394,7 +411,7 @@ function CountryGuessGame() {
                         {row.country}
                       </td>
                       <td className="px-4 py-2 border-b border-gray-700">
-                        {countryObj?.code || "-"}
+                        {countryObj?.Code || "-"}
                       </td>
                       <td className="px-4 py-2 border-b border-gray-700">
                         {row.value}
