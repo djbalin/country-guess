@@ -1,6 +1,24 @@
-export const JSON_DATA = [
-  {
-    Country: "India",
+import { CountryCode } from "./country_codes";
+
+type RawMetrics = {
+  Population: number;
+  YearlyChangePct: number;
+  NetChange: number;
+  Density: number;
+  LandArea: number;
+  Migrants_net: number;
+  Fertility_rate: number;
+  MedianAge: number;
+  UrbanPopPct: number | null;
+  WorldSharePct: number;
+};
+
+export type RawMetricNames = keyof RawMetrics;
+
+type RawData = Record<CountryCode, RawMetrics>;
+
+export const RAW_DATA: RawData = {
+  IN: {
     Population: 1463865525,
     YearlyChangePct: 0.89,
     NetChange: 12929734,
@@ -11,10 +29,8 @@ export const JSON_DATA = [
     MedianAge: 28.8,
     UrbanPopPct: 37.1,
     WorldSharePct: 17.78,
-    Code: "IN",
   },
-  {
-    Country: "China",
+  CN: {
     Population: 1416096094,
     YearlyChangePct: -0.23,
     NetChange: -3225184,
@@ -25,10 +41,8 @@ export const JSON_DATA = [
     MedianAge: 40.1,
     UrbanPopPct: 67.5,
     WorldSharePct: 17.2,
-    Code: "CN",
   },
-  {
-    Country: "United States",
+  US: {
     Population: 347275807,
     YearlyChangePct: 0.54,
     NetChange: 1849236,
@@ -39,10 +53,8 @@ export const JSON_DATA = [
     MedianAge: 38.5,
     UrbanPopPct: 82.8,
     WorldSharePct: 4.22,
-    Code: "US",
   },
-  {
-    Country: "Indonesia",
+  ID: {
     Population: 285721236,
     YearlyChangePct: 0.79,
     NetChange: 2233305,
@@ -53,10 +65,8 @@ export const JSON_DATA = [
     MedianAge: 30.4,
     UrbanPopPct: 59.6,
     WorldSharePct: 3.47,
-    Code: "ID",
   },
-  {
-    Country: "Pakistan",
+  PK: {
     Population: 255219554,
     YearlyChangePct: 1.57,
     NetChange: 3950390,
@@ -67,10 +77,8 @@ export const JSON_DATA = [
     MedianAge: 20.6,
     UrbanPopPct: 34.4,
     WorldSharePct: 3.1,
-    Code: "PK",
   },
-  {
-    Country: "Nigeria",
+  NG: {
     Population: 237527782,
     YearlyChangePct: 2.08,
     NetChange: 4848304,
@@ -81,10 +89,8 @@ export const JSON_DATA = [
     MedianAge: 18.1,
     UrbanPopPct: 54.9,
     WorldSharePct: 2.89,
-    Code: "NG",
   },
-  {
-    Country: "Brazil",
+  BR: {
     Population: 212812405,
     YearlyChangePct: 0.38,
     NetChange: 813832,
@@ -95,10 +101,8 @@ export const JSON_DATA = [
     MedianAge: 34.8,
     UrbanPopPct: 91.4,
     WorldSharePct: 2.59,
-    Code: "BR",
   },
-  {
-    Country: "Bangladesh",
+  BD: {
     Population: 175686899,
     YearlyChangePct: 1.22,
     NetChange: 2124535,
@@ -109,10 +113,8 @@ export const JSON_DATA = [
     MedianAge: 26,
     UrbanPopPct: 42.6,
     WorldSharePct: 2.13,
-    Code: "BD",
   },
-  {
-    Country: "Russia",
+  RU: {
     Population: 143997393,
     YearlyChangePct: -0.57,
     NetChange: -823030,
@@ -123,10 +125,8 @@ export const JSON_DATA = [
     MedianAge: 40.3,
     UrbanPopPct: 75,
     WorldSharePct: 1.75,
-    Code: "RU",
   },
-  {
-    Country: "Ethiopia",
+  ET: {
     Population: 135472051,
     YearlyChangePct: 2.58,
     NetChange: 3412284,
@@ -137,10 +137,8 @@ export const JSON_DATA = [
     MedianAge: 19.1,
     UrbanPopPct: 22.5,
     WorldSharePct: 1.65,
-    Code: "ET",
   },
-  {
-    Country: "Mexico",
+  MX: {
     Population: 131946900,
     YearlyChangePct: 0.83,
     NetChange: 1085893,
@@ -151,10 +149,8 @@ export const JSON_DATA = [
     MedianAge: 29.6,
     UrbanPopPct: 87.9,
     WorldSharePct: 1.6,
-    Code: "MX",
   },
-  {
-    Country: "Japan",
+  JP: {
     Population: 123103479,
     YearlyChangePct: -0.52,
     NetChange: -649562,
@@ -165,10 +161,8 @@ export const JSON_DATA = [
     MedianAge: 49.8,
     UrbanPopPct: 93.1,
     WorldSharePct: 1.5,
-    Code: "JP",
   },
-  {
-    Country: "Egypt",
+  EG: {
     Population: 118365995,
     YearlyChangePct: 1.57,
     NetChange: 1827737,
@@ -179,10 +173,8 @@ export const JSON_DATA = [
     MedianAge: 24.5,
     UrbanPopPct: 40.9,
     WorldSharePct: 1.44,
-    Code: "EG",
   },
-  {
-    Country: "Philippines",
+  PH: {
     Population: 116786962,
     YearlyChangePct: 0.81,
     NetChange: 943292,
@@ -193,10 +185,8 @@ export const JSON_DATA = [
     MedianAge: 26.1,
     UrbanPopPct: 49.3,
     WorldSharePct: 1.42,
-    Code: "PH",
   },
-  {
-    Country: "DR Congo",
+  CD: {
     Population: 112832473,
     YearlyChangePct: 3.25,
     NetChange: 3556208,
@@ -207,10 +197,8 @@ export const JSON_DATA = [
     MedianAge: 15.8,
     UrbanPopPct: 45,
     WorldSharePct: 1.37,
-    Code: "CD",
   },
-  {
-    Country: "Vietnam",
+  VN: {
     Population: 101598527,
     YearlyChangePct: 0.6,
     NetChange: 610841,
@@ -221,10 +209,8 @@ export const JSON_DATA = [
     MedianAge: 33.4,
     UrbanPopPct: 41.4,
     WorldSharePct: 1.23,
-    Code: "VN",
   },
-  {
-    Country: "Iran",
+  IR: {
     Population: 92417681,
     YearlyChangePct: 0.93,
     NetChange: 849943,
@@ -235,10 +221,8 @@ export const JSON_DATA = [
     MedianAge: 34,
     UrbanPopPct: 73.3,
     WorldSharePct: 1.12,
-    Code: "IR",
   },
-  {
-    Country: "Turkey",
+  TR: {
     Population: 87685426,
     YearlyChangePct: 0.24,
     NetChange: 211621,
@@ -249,10 +233,8 @@ export const JSON_DATA = [
     MedianAge: 33.5,
     UrbanPopPct: 76.9,
     WorldSharePct: 1.07,
-    Code: "TR",
   },
-  {
-    Country: "Germany",
+  DE: {
     Population: 84075075,
     YearlyChangePct: -0.56,
     NetChange: -477167,
@@ -263,10 +245,8 @@ export const JSON_DATA = [
     MedianAge: 45.5,
     UrbanPopPct: 76.5,
     WorldSharePct: 1.02,
-    Code: "DE",
   },
-  {
-    Country: "Thailand",
+  TH: {
     Population: 71619863,
     YearlyChangePct: -0.07,
     NetChange: -48148,
@@ -277,10 +257,8 @@ export const JSON_DATA = [
     MedianAge: 40.6,
     UrbanPopPct: 53.5,
     WorldSharePct: 0.87,
-    Code: "TH",
   },
-  {
-    Country: "Tanzania",
+  TZ: {
     Population: 70545865,
     YearlyChangePct: 2.9,
     NetChange: 1985708,
@@ -291,10 +269,8 @@ export const JSON_DATA = [
     MedianAge: 17.5,
     UrbanPopPct: 40,
     WorldSharePct: 0.86,
-    Code: "TZ",
   },
-  {
-    Country: "United Kingdom",
+  GB: {
     Population: 69551332,
     YearlyChangePct: 0.6,
     NetChange: 413140,
@@ -305,10 +281,8 @@ export const JSON_DATA = [
     MedianAge: 40.1,
     UrbanPopPct: 84.5,
     WorldSharePct: 0.84,
-    Code: "GB",
   },
-  {
-    Country: "France",
+  FR: {
     Population: 66650804,
     YearlyChangePct: 0.15,
     NetChange: 102274,
@@ -319,10 +293,8 @@ export const JSON_DATA = [
     MedianAge: 42.3,
     UrbanPopPct: 82.5,
     WorldSharePct: 0.81,
-    Code: "FR",
   },
-  {
-    Country: "South Africa",
+  ZA: {
     Population: 64747319,
     YearlyChangePct: 1.16,
     NetChange: 740132,
@@ -333,10 +305,8 @@ export const JSON_DATA = [
     MedianAge: 28.7,
     UrbanPopPct: 66.6,
     WorldSharePct: 0.79,
-    Code: "ZA",
   },
-  {
-    Country: "Italy",
+  IT: {
     Population: 59146260,
     YearlyChangePct: -0.33,
     NetChange: -196607,
@@ -347,10 +317,8 @@ export const JSON_DATA = [
     MedianAge: 48.2,
     UrbanPopPct: 72,
     WorldSharePct: 0.72,
-    Code: "IT",
   },
-  {
-    Country: "Kenya",
+  KE: {
     Population: 57532493,
     YearlyChangePct: 1.95,
     NetChange: 1099549,
@@ -361,10 +329,8 @@ export const JSON_DATA = [
     MedianAge: 20,
     UrbanPopPct: 31.9,
     WorldSharePct: 0.7,
-    Code: "KE",
   },
-  {
-    Country: "Myanmar",
+  MM: {
     Population: 54850648,
     YearlyChangePct: 0.64,
     NetChange: 350557,
@@ -375,10 +341,8 @@ export const JSON_DATA = [
     MedianAge: 30.1,
     UrbanPopPct: 34.1,
     WorldSharePct: 0.67,
-    Code: "MM",
   },
-  {
-    Country: "Colombia",
+  CO: {
     Population: 53425635,
     YearlyChangePct: 1.02,
     NetChange: 539272,
@@ -389,10 +353,8 @@ export const JSON_DATA = [
     MedianAge: 32.5,
     UrbanPopPct: 80.5,
     WorldSharePct: 0.65,
-    Code: "CO",
   },
-  {
-    Country: "South Korea",
+  KR: {
     Population: 51667029,
     YearlyChangePct: -0.1,
     NetChange: -50561,
@@ -403,10 +365,8 @@ export const JSON_DATA = [
     MedianAge: 45.6,
     UrbanPopPct: 82.4,
     WorldSharePct: 0.63,
-    Code: "KR",
   },
-  {
-    Country: "Sudan",
+  SD: {
     Population: 51662147,
     YearlyChangePct: 2.4,
     NetChange: 1213184,
@@ -417,10 +377,8 @@ export const JSON_DATA = [
     MedianAge: 18.5,
     UrbanPopPct: 35.3,
     WorldSharePct: 0.63,
-    Code: "SD",
   },
-  {
-    Country: "Uganda",
+  UG: {
     Population: 51384894,
     YearlyChangePct: 2.74,
     NetChange: 1369802,
@@ -431,10 +389,8 @@ export const JSON_DATA = [
     MedianAge: 16.9,
     UrbanPopPct: 30,
     WorldSharePct: 0.62,
-    Code: "UG",
   },
-  {
-    Country: "Spain",
+  ES: {
     Population: 47889958,
     YearlyChangePct: -0.04,
     NetChange: -20568,
@@ -445,10 +401,8 @@ export const JSON_DATA = [
     MedianAge: 45.9,
     UrbanPopPct: 79.3,
     WorldSharePct: 0.58,
-    Code: "ES",
   },
-  {
-    Country: "Algeria",
+  DZ: {
     Population: 47435312,
     YearlyChangePct: 1.33,
     NetChange: 621004,
@@ -459,10 +413,8 @@ export const JSON_DATA = [
     MedianAge: 28.6,
     UrbanPopPct: 74.4,
     WorldSharePct: 0.58,
-    Code: "DZ",
   },
-  {
-    Country: "Iraq",
+  IQ: {
     Population: 47020774,
     YearlyChangePct: 2.13,
     NetChange: 978759,
@@ -473,10 +425,8 @@ export const JSON_DATA = [
     MedianAge: 20.8,
     UrbanPopPct: 72.4,
     WorldSharePct: 0.57,
-    Code: "IQ",
   },
-  {
-    Country: "Argentina",
+  AR: {
     Population: 45851378,
     YearlyChangePct: 0.34,
     NetChange: 155219,
@@ -487,10 +437,8 @@ export const JSON_DATA = [
     MedianAge: 32.9,
     UrbanPopPct: 96,
     WorldSharePct: 0.56,
-    Code: "AR",
   },
-  {
-    Country: "Afghanistan",
+  AF: {
     Population: 43844111,
     YearlyChangePct: 2.81,
     NetChange: 1196619,
@@ -501,10 +449,8 @@ export const JSON_DATA = [
     MedianAge: 17.3,
     UrbanPopPct: 26.7,
     WorldSharePct: 0.53,
-    Code: "AF",
   },
-  {
-    Country: "Yemen",
+  YE: {
     Population: 41773878,
     YearlyChangePct: 2.93,
     NetChange: 1190714,
@@ -515,10 +461,8 @@ export const JSON_DATA = [
     MedianAge: 18.4,
     UrbanPopPct: 33,
     WorldSharePct: 0.51,
-    Code: "YE",
   },
-  {
-    Country: "Canada",
+  CA: {
     Population: 40126723,
     YearlyChangePct: 0.97,
     NetChange: 384293,
@@ -529,10 +473,8 @@ export const JSON_DATA = [
     MedianAge: 40.6,
     UrbanPopPct: 80.2,
     WorldSharePct: 0.49,
-    Code: "CA",
   },
-  {
-    Country: "Angola",
+  AO: {
     Population: 39040039,
     YearlyChangePct: 3.05,
     NetChange: 1154190,
@@ -543,10 +485,8 @@ export const JSON_DATA = [
     MedianAge: 16.6,
     UrbanPopPct: 68.8,
     WorldSharePct: 0.47,
-    Code: "AO",
   },
-  {
-    Country: "Ukraine",
+  UA: {
     Population: 38980376,
     YearlyChangePct: 2.96,
     NetChange: 1120155,
@@ -557,10 +497,8 @@ export const JSON_DATA = [
     MedianAge: 41.8,
     UrbanPopPct: 76.8,
     WorldSharePct: 0.47,
-    Code: "UA",
   },
-  {
-    Country: "Morocco",
+  MA: {
     Population: 38430770,
     YearlyChangePct: 0.92,
     NetChange: 349597,
@@ -571,10 +509,8 @@ export const JSON_DATA = [
     MedianAge: 29.8,
     UrbanPopPct: 67.3,
     WorldSharePct: 0.47,
-    Code: "MA",
   },
-  {
-    Country: "Poland",
+  PL: {
     Population: 38140910,
     YearlyChangePct: -1.03,
     NetChange: -398291,
@@ -585,10 +521,8 @@ export const JSON_DATA = [
     MedianAge: 42.5,
     UrbanPopPct: 59.2,
     WorldSharePct: 0.46,
-    Code: "PL",
   },
-  {
-    Country: "Uzbekistan",
+  UZ: {
     Population: 37053428,
     YearlyChangePct: 1.9,
     NetChange: 691569,
@@ -599,10 +533,8 @@ export const JSON_DATA = [
     MedianAge: 27,
     UrbanPopPct: 48.1,
     WorldSharePct: 0.45,
-    Code: "UZ",
   },
-  {
-    Country: "Malaysia",
+  MY: {
     Population: 35977838,
     YearlyChangePct: 1.18,
     NetChange: 420165,
@@ -613,10 +545,8 @@ export const JSON_DATA = [
     MedianAge: 31,
     UrbanPopPct: 77.4,
     WorldSharePct: 0.44,
-    Code: "MY",
   },
-  {
-    Country: "Mozambique",
+  MZ: {
     Population: 35631653,
     YearlyChangePct: 2.89,
     NetChange: 999887,
@@ -627,10 +557,8 @@ export const JSON_DATA = [
     MedianAge: 16.5,
     UrbanPopPct: 41.6,
     WorldSharePct: 0.43,
-    Code: "MZ",
   },
-  {
-    Country: "Ghana",
+  GH: {
     Population: 35064272,
     YearlyChangePct: 1.85,
     NetChange: 636858,
@@ -641,10 +569,8 @@ export const JSON_DATA = [
     MedianAge: 21.3,
     UrbanPopPct: 58.6,
     WorldSharePct: 0.43,
-    Code: "GH",
   },
-  {
-    Country: "Peru",
+  PE: {
     Population: 34576665,
     YearlyChangePct: 1.05,
     NetChange: 358817,
@@ -655,10 +581,8 @@ export const JSON_DATA = [
     MedianAge: 30.2,
     UrbanPopPct: 80.6,
     WorldSharePct: 0.42,
-    Code: "PE",
   },
-  {
-    Country: "Saudi Arabia",
+  SA: {
     Population: 34566328,
     YearlyChangePct: 1.78,
     NetChange: 603571,
@@ -669,10 +593,8 @@ export const JSON_DATA = [
     MedianAge: 29.6,
     UrbanPopPct: 92.1,
     WorldSharePct: 0.42,
-    Code: "SA",
   },
-  {
-    Country: "Madagascar",
+  MG: {
     Population: 32740678,
     YearlyChangePct: 2.43,
     NetChange: 775722,
@@ -683,10 +605,8 @@ export const JSON_DATA = [
     MedianAge: 19.2,
     UrbanPopPct: 40.3,
     WorldSharePct: 0.4,
-    Code: "MG",
   },
-  {
-    Country: "Côte d'Ivoire",
+  CI: {
     Population: 32711547,
     YearlyChangePct: 2.43,
     NetChange: 777317,
@@ -697,10 +617,8 @@ export const JSON_DATA = [
     MedianAge: 18.3,
     UrbanPopPct: 49,
     WorldSharePct: 0.4,
-    Code: "CI",
   },
-  {
-    Country: "Cameroon",
+  CM: {
     Population: 29879337,
     YearlyChangePct: 2.59,
     NetChange: 755593,
@@ -711,10 +629,8 @@ export const JSON_DATA = [
     MedianAge: 18,
     UrbanPopPct: 59.4,
     WorldSharePct: 0.36,
-    Code: "CM",
   },
-  {
-    Country: "Nepal",
+  NP: {
     Population: 29618118,
     YearlyChangePct: -0.11,
     NetChange: -32936,
@@ -725,10 +641,8 @@ export const JSON_DATA = [
     MedianAge: 25.3,
     UrbanPopPct: 24.5,
     WorldSharePct: 0.36,
-    Code: "NP",
   },
-  {
-    Country: "Venezuela",
+  VE: {
     Population: 28516896,
     YearlyChangePct: 0.39,
     NetChange: 111353,
@@ -739,10 +653,8 @@ export const JSON_DATA = [
     MedianAge: 29.4,
     UrbanPopPct: null,
     WorldSharePct: 0.35,
-    Code: "VE",
   },
-  {
-    Country: "Niger",
+  NE: {
     Population: 27917831,
     YearlyChangePct: 3.28,
     NetChange: 885419,
@@ -753,10 +665,8 @@ export const JSON_DATA = [
     MedianAge: 15.6,
     UrbanPopPct: 18.2,
     WorldSharePct: 0.34,
-    Code: "NE",
   },
-  {
-    Country: "Australia",
+  AU: {
     Population: 26974026,
     YearlyChangePct: 0.98,
     NetChange: 260821,
@@ -767,10 +677,8 @@ export const JSON_DATA = [
     MedianAge: 38.3,
     UrbanPopPct: 86.5,
     WorldSharePct: 0.33,
-    Code: "AU",
   },
-  {
-    Country: "North Korea",
+  KP: {
     Population: 26571036,
     YearlyChangePct: 0.27,
     NetChange: 72213,
@@ -781,10 +689,8 @@ export const JSON_DATA = [
     MedianAge: 36.5,
     UrbanPopPct: 63.3,
     WorldSharePct: 0.32,
-    Code: "KP",
   },
-  {
-    Country: "Syria",
+  SY: {
     Population: 25620427,
     YearlyChangePct: 3.84,
     NetChange: 947667,
@@ -795,10 +701,8 @@ export const JSON_DATA = [
     MedianAge: 23.3,
     UrbanPopPct: 53.6,
     WorldSharePct: 0.31,
-    Code: "SY",
   },
-  {
-    Country: "Mali",
+  ML: {
     Population: 25198821,
     YearlyChangePct: 2.94,
     NetChange: 720226,
@@ -809,10 +713,8 @@ export const JSON_DATA = [
     MedianAge: 15.7,
     UrbanPopPct: 44.4,
     WorldSharePct: 0.31,
-    Code: "ML",
   },
-  {
-    Country: "Burkina Faso",
+  BF: {
     Population: 24074580,
     YearlyChangePct: 2.23,
     NetChange: 525799,
@@ -823,10 +725,8 @@ export const JSON_DATA = [
     MedianAge: 17.7,
     UrbanPopPct: 33.7,
     WorldSharePct: 0.29,
-    Code: "BF",
   },
-  {
-    Country: "Sri Lanka",
+  LK: {
     Population: 23229470,
     YearlyChangePct: 0.54,
     NetChange: 125905,
@@ -837,10 +737,8 @@ export const JSON_DATA = [
     MedianAge: 33.3,
     UrbanPopPct: 18.1,
     WorldSharePct: 0.28,
-    Code: "LK",
   },
-  {
-    Country: "Taiwan",
+  TW: {
     Population: 23112793,
     YearlyChangePct: -0.44,
     NetChange: -101169,
@@ -851,10 +749,8 @@ export const JSON_DATA = [
     MedianAge: 44.8,
     UrbanPopPct: 84,
     WorldSharePct: 0.28,
-    Code: "TW",
   },
-  {
-    Country: "Malawi",
+  MW: {
     Population: 22216120,
     YearlyChangePct: 2.59,
     NetChange: 560834,
@@ -865,10 +761,8 @@ export const JSON_DATA = [
     MedianAge: 18.1,
     UrbanPopPct: 19.8,
     WorldSharePct: 0.27,
-    Code: "MW",
   },
-  {
-    Country: "Zambia",
+  ZM: {
     Population: 21913874,
     YearlyChangePct: 2.81,
     NetChange: 598918,
@@ -879,10 +773,8 @@ export const JSON_DATA = [
     MedianAge: 17.9,
     UrbanPopPct: 46.8,
     WorldSharePct: 0.27,
-    Code: "ZM",
   },
-  {
-    Country: "Chad",
+  TD: {
     Population: 21003705,
     YearlyChangePct: 3.47,
     NetChange: 704582,
@@ -893,10 +785,8 @@ export const JSON_DATA = [
     MedianAge: 15.8,
     UrbanPopPct: 22.4,
     WorldSharePct: 0.26,
-    Code: "TD",
   },
-  {
-    Country: "Kazakhstan",
+  KZ: {
     Population: 20843754,
     YearlyChangePct: 1.22,
     NetChange: 251183,
@@ -907,10 +797,8 @@ export const JSON_DATA = [
     MedianAge: 29.7,
     UrbanPopPct: 55.1,
     WorldSharePct: 0.25,
-    Code: "KZ",
   },
-  {
-    Country: "Chile",
+  CL: {
     Population: 19859921,
     YearlyChangePct: 0.48,
     NetChange: 95150,
@@ -921,10 +809,8 @@ export const JSON_DATA = [
     MedianAge: 36.9,
     UrbanPopPct: 84.8,
     WorldSharePct: 0.24,
-    Code: "CL",
   },
-  {
-    Country: "Somalia",
+  SO: {
     Population: 19654739,
     YearlyChangePct: 3.4,
     NetChange: 645588,
@@ -935,10 +821,8 @@ export const JSON_DATA = [
     MedianAge: 15.6,
     UrbanPopPct: 46.6,
     WorldSharePct: 0.24,
-    Code: "SO",
   },
-  {
-    Country: "Senegal",
+  SN: {
     Population: 18931966,
     YearlyChangePct: 2.32,
     NetChange: 429982,
@@ -949,10 +833,8 @@ export const JSON_DATA = [
     MedianAge: 19.6,
     UrbanPopPct: 52.3,
     WorldSharePct: 0.23,
-    Code: "SN",
   },
-  {
-    Country: "Romania",
+  RO: {
     Population: 18908650,
     YearlyChangePct: -0.56,
     NetChange: -106438,
@@ -963,10 +845,8 @@ export const JSON_DATA = [
     MedianAge: 43.2,
     UrbanPopPct: 55.2,
     WorldSharePct: 0.23,
-    Code: "RO",
   },
-  {
-    Country: "Guatemala",
+  GT: {
     Population: 18687881,
     YearlyChangePct: 1.53,
     NetChange: 281522,
@@ -977,10 +857,8 @@ export const JSON_DATA = [
     MedianAge: 23.4,
     UrbanPopPct: 56.6,
     WorldSharePct: 0.23,
-    Code: "GT",
   },
-  {
-    Country: "Netherlands",
+  NL: {
     Population: 18346819,
     YearlyChangePct: 0.65,
     NetChange: 118077,
@@ -991,10 +869,8 @@ export const JSON_DATA = [
     MedianAge: 41.5,
     UrbanPopPct: 88.9,
     WorldSharePct: 0.22,
-    Code: "NL",
   },
-  {
-    Country: "Ecuador",
+  EC: {
     Population: 18289896,
     YearlyChangePct: 0.85,
     NetChange: 154418,
@@ -1005,10 +881,8 @@ export const JSON_DATA = [
     MedianAge: 29.3,
     UrbanPopPct: 66,
     WorldSharePct: 0.22,
-    Code: "EC",
   },
-  {
-    Country: "Cambodia",
+  KH: {
     Population: 17847982,
     YearlyChangePct: 1.19,
     NetChange: 209181,
@@ -1019,10 +893,8 @@ export const JSON_DATA = [
     MedianAge: 26.2,
     UrbanPopPct: 26.5,
     WorldSharePct: 0.22,
-    Code: "KH",
   },
-  {
-    Country: "Zimbabwe",
+  ZW: {
     Population: 16950795,
     YearlyChangePct: 1.9,
     NetChange: 316422,
@@ -1033,10 +905,8 @@ export const JSON_DATA = [
     MedianAge: 18.1,
     UrbanPopPct: 37.9,
     WorldSharePct: 0.21,
-    Code: "ZW",
   },
-  {
-    Country: "Guinea",
+  GN: {
     Population: 15099727,
     YearlyChangePct: 2.34,
     NetChange: 344942,
@@ -1047,10 +917,8 @@ export const JSON_DATA = [
     MedianAge: 18.3,
     UrbanPopPct: 40.3,
     WorldSharePct: 0.18,
-    Code: "GN",
   },
-  {
-    Country: "Benin",
+  BJ: {
     Population: 14814460,
     YearlyChangePct: 2.43,
     NetChange: 351736,
@@ -1061,10 +929,8 @@ export const JSON_DATA = [
     MedianAge: 18,
     UrbanPopPct: 47.8,
     WorldSharePct: 0.18,
-    Code: "BJ",
   },
-  {
-    Country: "Rwanda",
+  RW: {
     Population: 14569341,
     YearlyChangePct: 2.19,
     NetChange: 312774,
@@ -1075,10 +941,8 @@ export const JSON_DATA = [
     MedianAge: 19.9,
     UrbanPopPct: 18.3,
     WorldSharePct: 0.18,
-    Code: "RW",
   },
-  {
-    Country: "Burundi",
+  BI: {
     Population: 14390003,
     YearlyChangePct: 2.44,
     NetChange: 342217,
@@ -1089,10 +953,8 @@ export const JSON_DATA = [
     MedianAge: 16.4,
     UrbanPopPct: 14.9,
     WorldSharePct: 0.17,
-    Code: "BI",
   },
-  {
-    Country: "Bolivia",
+  BO: {
     Population: 12581843,
     YearlyChangePct: 1.36,
     NetChange: 168528,
@@ -1103,10 +965,8 @@ export const JSON_DATA = [
     MedianAge: 25.2,
     UrbanPopPct: 70.6,
     WorldSharePct: 0.15,
-    Code: "BO",
   },
-  {
-    Country: "Tunisia",
+  TN: {
     Population: 12348573,
     YearlyChangePct: 0.58,
     NetChange: 71464,
@@ -1117,10 +977,8 @@ export const JSON_DATA = [
     MedianAge: 32.9,
     UrbanPopPct: 71.7,
     WorldSharePct: 0.15,
-    Code: "TN",
   },
-  {
-    Country: "South Sudan",
+  SS: {
     Population: 12188788,
     YearlyChangePct: 2.05,
     NetChange: 245380,
@@ -1131,10 +989,8 @@ export const JSON_DATA = [
     MedianAge: 18.7,
     UrbanPopPct: 27.7,
     WorldSharePct: 0.15,
-    Code: "SS",
   },
-  {
-    Country: "Haiti",
+  HT: {
     Population: 11906095,
     YearlyChangePct: 1.13,
     NetChange: 133538,
@@ -1145,10 +1001,8 @@ export const JSON_DATA = [
     MedianAge: 24.1,
     UrbanPopPct: 61.7,
     WorldSharePct: 0.14,
-    Code: "HT",
   },
-  {
-    Country: "Belgium",
+  BE: {
     Population: 11758603,
     YearlyChangePct: 0.17,
     NetChange: 19840,
@@ -1159,10 +1013,8 @@ export const JSON_DATA = [
     MedianAge: 41.9,
     UrbanPopPct: 98.8,
     WorldSharePct: 0.14,
-    Code: "BE",
   },
-  {
-    Country: "Jordan",
+  JO: {
     Population: 11520684,
     YearlyChangePct: -0.28,
     NetChange: -32192,
@@ -1173,10 +1025,8 @@ export const JSON_DATA = [
     MedianAge: 24.7,
     UrbanPopPct: 85.1,
     WorldSharePct: 0.14,
-    Code: "JO",
   },
-  {
-    Country: "Dominican Republic",
+  DO: {
     Population: 11520487,
     YearlyChangePct: 0.81,
     NetChange: 92930,
@@ -1187,10 +1037,8 @@ export const JSON_DATA = [
     MedianAge: 28.3,
     UrbanPopPct: 86.4,
     WorldSharePct: 0.14,
-    Code: "DO",
   },
-  {
-    Country: "United Arab Emirates",
+  AE: {
     Population: 11346000,
     YearlyChangePct: 2.89,
     NetChange: 318871,
@@ -1201,10 +1049,8 @@ export const JSON_DATA = [
     MedianAge: 31.6,
     UrbanPopPct: 81.1,
     WorldSharePct: 0.14,
-    Code: "AE",
   },
-  {
-    Country: "Honduras",
+  HN: {
     Population: 11005850,
     YearlyChangePct: 1.66,
     NetChange: 180147,
@@ -1215,10 +1061,8 @@ export const JSON_DATA = [
     MedianAge: 24.2,
     UrbanPopPct: 58.3,
     WorldSharePct: 0.13,
-    Code: "HN",
   },
-  {
-    Country: "Cuba",
+  CU: {
     Population: 10937203,
     YearlyChangePct: -0.39,
     NetChange: -42580,
@@ -1229,10 +1073,8 @@ export const JSON_DATA = [
     MedianAge: 42.2,
     UrbanPopPct: 81.9,
     WorldSharePct: 0.13,
-    Code: "CU",
   },
-  {
-    Country: "Tajikistan",
+  TJ: {
     Population: 10786734,
     YearlyChangePct: 1.85,
     NetChange: 195807,
@@ -1243,10 +1085,8 @@ export const JSON_DATA = [
     MedianAge: 22.2,
     UrbanPopPct: 27.7,
     WorldSharePct: 0.13,
-    Code: "TJ",
   },
-  {
-    Country: "Papua New Guinea",
+  PG: {
     Population: 10762817,
     YearlyChangePct: 1.76,
     NetChange: 186315,
@@ -1257,10 +1097,8 @@ export const JSON_DATA = [
     MedianAge: 22.8,
     UrbanPopPct: 12.6,
     WorldSharePct: 0.13,
-    Code: "PG",
   },
-  {
-    Country: "Sweden",
+  SE: {
     Population: 10656633,
     YearlyChangePct: 0.47,
     NetChange: 49634,
@@ -1271,10 +1109,8 @@ export const JSON_DATA = [
     MedianAge: 40.3,
     UrbanPopPct: 87.4,
     WorldSharePct: 0.13,
-    Code: "SE",
   },
-  {
-    Country: "Czech Republic (Czechia)",
+  CZ: {
     Population: 10609239,
     YearlyChangePct: -1.18,
     NetChange: -126620,
@@ -1285,10 +1121,8 @@ export const JSON_DATA = [
     MedianAge: 43.8,
     UrbanPopPct: 75,
     WorldSharePct: 0.13,
-    Code: "CZ",
   },
-  {
-    Country: "Portugal",
+  PT: {
     Population: 10411834,
     YearlyChangePct: -0.13,
     NetChange: -13458,
@@ -1299,10 +1133,8 @@ export const JSON_DATA = [
     MedianAge: 46.9,
     UrbanPopPct: 66.5,
     WorldSharePct: 0.13,
-    Code: "PT",
   },
-  {
-    Country: "Azerbaijan",
+  AZ: {
     Population: 10397713,
     YearlyChangePct: 0.59,
     NetChange: 61136,
@@ -1313,10 +1145,8 @@ export const JSON_DATA = [
     MedianAge: 33.6,
     UrbanPopPct: 58.7,
     WorldSharePct: 0.13,
-    Code: "AZ",
   },
-  {
-    Country: "Greece",
+  GR: {
     Population: 9938844,
     YearlyChangePct: -1.08,
     NetChange: -108973,
@@ -1327,10 +1157,8 @@ export const JSON_DATA = [
     MedianAge: 46.8,
     UrbanPopPct: 89.5,
     WorldSharePct: 0.12,
-    Code: "GR",
   },
-  {
-    Country: "Togo",
+  TG: {
     Population: 9721608,
     YearlyChangePct: 2.17,
     NetChange: 206372,
@@ -1341,10 +1169,8 @@ export const JSON_DATA = [
     MedianAge: 19.1,
     UrbanPopPct: 44.2,
     WorldSharePct: 0.12,
-    Code: "TG",
   },
-  {
-    Country: "Hungary",
+  HU: {
     Population: 9632287,
     YearlyChangePct: -0.45,
     NetChange: -43848,
@@ -1355,10 +1181,8 @@ export const JSON_DATA = [
     MedianAge: 43.9,
     UrbanPopPct: 72,
     WorldSharePct: 0.12,
-    Code: "HU",
   },
-  {
-    Country: "Israel",
+  IL: {
     Population: 9517181,
     YearlyChangePct: 1.39,
     NetChange: 130160,
@@ -1369,10 +1193,8 @@ export const JSON_DATA = [
     MedianAge: 29.2,
     UrbanPopPct: 91.4,
     WorldSharePct: 0.12,
-    Code: "IL",
   },
-  {
-    Country: "Austria",
+  AT: {
     Population: 9113574,
     YearlyChangePct: -0.08,
     NetChange: -7239,
@@ -1383,10 +1205,8 @@ export const JSON_DATA = [
     MedianAge: 43.6,
     UrbanPopPct: 58.6,
     WorldSharePct: 0.11,
-    Code: "AT",
   },
-  {
-    Country: "Belarus",
+  BY: {
     Population: 8997603,
     YearlyChangePct: -0.65,
     NetChange: -59093,
@@ -1397,10 +1217,8 @@ export const JSON_DATA = [
     MedianAge: 41.3,
     UrbanPopPct: 84.4,
     WorldSharePct: 0.11,
-    Code: "BY",
   },
-  {
-    Country: "Switzerland",
+  CH: {
     Population: 8967407,
     YearlyChangePct: 0.51,
     NetChange: 45426,
@@ -1411,10 +1229,8 @@ export const JSON_DATA = [
     MedianAge: 42.9,
     UrbanPopPct: 74.4,
     WorldSharePct: 0.11,
-    Code: "CH",
   },
-  {
-    Country: "Sierra Leone",
+  SL: {
     Population: 8819794,
     YearlyChangePct: 2.06,
     NetChange: 177772,
@@ -1425,10 +1241,8 @@ export const JSON_DATA = [
     MedianAge: 19.7,
     UrbanPopPct: 45.5,
     WorldSharePct: 0.11,
-    Code: "SL",
   },
-  {
-    Country: "Laos",
+  LA: {
     Population: 7873046,
     YearlyChangePct: 1.33,
     NetChange: 103227,
@@ -1439,10 +1253,8 @@ export const JSON_DATA = [
     MedianAge: 24.9,
     UrbanPopPct: 38.3,
     WorldSharePct: 0.096,
-    Code: "LA",
   },
-  {
-    Country: "Turkmenistan",
+  TM: {
     Population: 7618847,
     YearlyChangePct: 1.66,
     NetChange: 124349,
@@ -1453,10 +1265,8 @@ export const JSON_DATA = [
     MedianAge: 26.9,
     UrbanPopPct: 46.5,
     WorldSharePct: 0.093,
-    Code: "TM",
   },
-  {
-    Country: "Libya",
+  LY: {
     Population: 7458555,
     YearlyChangePct: 1.05,
     NetChange: 77532,
@@ -1467,10 +1277,8 @@ export const JSON_DATA = [
     MedianAge: 27.7,
     UrbanPopPct: 77.5,
     WorldSharePct: 0.091,
-    Code: "LY",
   },
-  {
-    Country: "Hong Kong",
+  HK: {
     Population: 7396076,
     YearlyChangePct: -0.25,
     NetChange: -18833,
@@ -1481,10 +1289,8 @@ export const JSON_DATA = [
     MedianAge: 47.4,
     UrbanPopPct: null,
     WorldSharePct: 0.09,
-    Code: "HK",
   },
-  {
-    Country: "Kyrgyzstan",
+  KG: {
     Population: 7295034,
     YearlyChangePct: 1.52,
     NetChange: 109025,
@@ -1495,10 +1301,8 @@ export const JSON_DATA = [
     MedianAge: 25.4,
     UrbanPopPct: 35.3,
     WorldSharePct: 0.089,
-    Code: "KG",
   },
-  {
-    Country: "Paraguay",
+  PY: {
     Population: 7013078,
     YearlyChangePct: 1.21,
     NetChange: 83925,
@@ -1509,10 +1313,8 @@ export const JSON_DATA = [
     MedianAge: 27,
     UrbanPopPct: 68,
     WorldSharePct: 0.085,
-    Code: "PY",
   },
-  {
-    Country: "Nicaragua",
+  NI: {
     Population: 7007502,
     YearlyChangePct: 1.32,
     NetChange: 91362,
@@ -1523,10 +1325,8 @@ export const JSON_DATA = [
     MedianAge: 26,
     UrbanPopPct: 58.1,
     WorldSharePct: 0.085,
-    Code: "NI",
   },
-  {
-    Country: "Bulgaria",
+  BG: {
     Population: 6714560,
     YearlyChangePct: -0.64,
     NetChange: -43129,
@@ -1537,10 +1337,8 @@ export const JSON_DATA = [
     MedianAge: 44.8,
     UrbanPopPct: 77.1,
     WorldSharePct: 0.082,
-    Code: "BG",
   },
-  {
-    Country: "Serbia",
+  RS: {
     Population: 6689039,
     YearlyChangePct: -0.7,
     NetChange: -47177,
@@ -1551,10 +1349,8 @@ export const JSON_DATA = [
     MedianAge: 44.4,
     UrbanPopPct: 73.6,
     WorldSharePct: 0.081,
-    Code: "RS",
   },
-  {
-    Country: "Congo",
+  CG: {
     Population: 6484437,
     YearlyChangePct: 2.39,
     NetChange: 151476,
@@ -1565,10 +1361,8 @@ export const JSON_DATA = [
     MedianAge: 18.6,
     UrbanPopPct: 69.8,
     WorldSharePct: 0.079,
-    Code: "CG",
   },
-  {
-    Country: "El Salvador",
+  SV: {
     Population: 6365503,
     YearlyChangePct: 0.43,
     NetChange: 27310,
@@ -1579,10 +1373,8 @@ export const JSON_DATA = [
     MedianAge: 27.9,
     UrbanPopPct: 79.9,
     WorldSharePct: 0.077,
-    Code: "SV",
   },
-  {
-    Country: "Denmark",
+  DK: {
     Population: 6002507,
     YearlyChangePct: 0.42,
     NetChange: 25095,
@@ -1593,10 +1385,8 @@ export const JSON_DATA = [
     MedianAge: 41.3,
     UrbanPopPct: 87.4,
     WorldSharePct: 0.073,
-    Code: "DK",
   },
-  {
-    Country: "Singapore",
+  SG: {
     Population: 5870750,
     YearlyChangePct: 0.66,
     NetChange: 38363,
@@ -1607,10 +1397,8 @@ export const JSON_DATA = [
     MedianAge: 36.2,
     UrbanPopPct: null,
     WorldSharePct: 0.071,
-    Code: "SG",
   },
-  {
-    Country: "Lebanon",
+  LB: {
     Population: 5849421,
     YearlyChangePct: 0.75,
     NetChange: 43459,
@@ -1621,10 +1409,8 @@ export const JSON_DATA = [
     MedianAge: 28.8,
     UrbanPopPct: 86,
     WorldSharePct: 0.071,
-    Code: "LB",
   },
-  {
-    Country: "Liberia",
+  LR: {
     Population: 5731206,
     YearlyChangePct: 2.11,
     NetChange: 118389,
@@ -1635,10 +1421,8 @@ export const JSON_DATA = [
     MedianAge: 18.8,
     UrbanPopPct: 55,
     WorldSharePct: 0.07,
-    Code: "LR",
   },
-  {
-    Country: "Finland",
+  FI: {
     Population: 5623329,
     YearlyChangePct: 0.11,
     NetChange: 6019,
@@ -1649,10 +1433,8 @@ export const JSON_DATA = [
     MedianAge: 43.2,
     UrbanPopPct: 86.7,
     WorldSharePct: 0.068,
-    Code: "FI",
   },
-  {
-    Country: "Norway",
+  NO: {
     Population: 5623071,
     YearlyChangePct: 0.83,
     NetChange: 46411,
@@ -1663,10 +1445,8 @@ export const JSON_DATA = [
     MedianAge: 39.8,
     UrbanPopPct: 85.9,
     WorldSharePct: 0.068,
-    Code: "NO",
   },
-  {
-    Country: "State of Palestine",
+  PS: {
     Population: 5589623,
     YearlyChangePct: 1.71,
     NetChange: 94180,
@@ -1677,10 +1457,8 @@ export const JSON_DATA = [
     MedianAge: 20.1,
     UrbanPopPct: 84.2,
     WorldSharePct: 0.068,
-    Code: "PS",
   },
-  {
-    Country: "Central African Republic",
+  CF: {
     Population: 5513282,
     YearlyChangePct: 3.43,
     NetChange: 182592,
@@ -1691,10 +1469,8 @@ export const JSON_DATA = [
     MedianAge: 14.5,
     UrbanPopPct: 44.5,
     WorldSharePct: 0.067,
-    Code: "CF",
   },
-  {
-    Country: "Oman",
+  OM: {
     Population: 5494691,
     YearlyChangePct: 4.04,
     NetChange: 213153,
@@ -1705,10 +1481,8 @@ export const JSON_DATA = [
     MedianAge: 29.7,
     UrbanPopPct: 90.8,
     WorldSharePct: 0.067,
-    Code: "OM",
   },
-  {
-    Country: "Slovakia",
+  SK: {
     Population: 5474881,
     YearlyChangePct: -0.58,
     NetChange: -31879,
@@ -1719,10 +1493,8 @@ export const JSON_DATA = [
     MedianAge: 42.3,
     UrbanPopPct: 54,
     WorldSharePct: 0.067,
-    Code: "SK",
   },
-  {
-    Country: "Mauritania",
+  MR: {
     Population: 5315065,
     YearlyChangePct: 2.82,
     NetChange: 145670,
@@ -1733,10 +1505,8 @@ export const JSON_DATA = [
     MedianAge: 17.4,
     UrbanPopPct: 60.3,
     WorldSharePct: 0.065,
-    Code: "MR",
   },
-  {
-    Country: "Ireland",
+  IE: {
     Population: 5308039,
     YearlyChangePct: 1.01,
     NetChange: 53022,
@@ -1747,10 +1517,8 @@ export const JSON_DATA = [
     MedianAge: 39,
     UrbanPopPct: 62.1,
     WorldSharePct: 0.064,
-    Code: "IE",
   },
-  {
-    Country: "New Zealand",
+  NZ: {
     Population: 5251899,
     YearlyChangePct: 0.73,
     NetChange: 37955,
@@ -1761,10 +1529,8 @@ export const JSON_DATA = [
     MedianAge: 37.7,
     UrbanPopPct: 83.6,
     WorldSharePct: 0.064,
-    Code: "NZ",
   },
-  {
-    Country: "Costa Rica",
+  CR: {
     Population: 5152950,
     YearlyChangePct: 0.45,
     NetChange: 23040,
@@ -1775,10 +1541,8 @@ export const JSON_DATA = [
     MedianAge: 35.2,
     UrbanPopPct: 85.2,
     WorldSharePct: 0.063,
-    Code: "CR",
   },
-  {
-    Country: "Kuwait",
+  KW: {
     Population: 5026078,
     YearlyChangePct: 1.86,
     NetChange: 91571,
@@ -1789,10 +1553,8 @@ export const JSON_DATA = [
     MedianAge: 34.8,
     UrbanPopPct: 91.6,
     WorldSharePct: 0.061,
-    Code: "KW",
   },
-  {
-    Country: "Panama",
+  PA: {
     Population: 4571189,
     YearlyChangePct: 1.23,
     NetChange: 55612,
@@ -1803,10 +1565,8 @@ export const JSON_DATA = [
     MedianAge: 30.3,
     UrbanPopPct: 70.7,
     WorldSharePct: 0.056,
-    Code: "PA",
   },
-  {
-    Country: "Croatia",
+  HR: {
     Population: 3848160,
     YearlyChangePct: -0.7,
     NetChange: -27165,
@@ -1817,10 +1577,8 @@ export const JSON_DATA = [
     MedianAge: 45.3,
     UrbanPopPct: 61.7,
     WorldSharePct: 0.047,
-    Code: "HR",
   },
-  {
-    Country: "Georgia",
+  GE: {
     Population: 3806671,
     YearlyChangePct: -0.03,
     NetChange: -999,
@@ -1831,10 +1589,8 @@ export const JSON_DATA = [
     MedianAge: 37.3,
     UrbanPopPct: 62,
     WorldSharePct: 0.046,
-    Code: "GE",
   },
-  {
-    Country: "Eritrea",
+  ER: {
     Population: 3607003,
     YearlyChangePct: 2.02,
     NetChange: 71400,
@@ -1845,10 +1601,8 @@ export const JSON_DATA = [
     MedianAge: 19.2,
     UrbanPopPct: 74.8,
     WorldSharePct: 0.044,
-    Code: "ER",
   },
-  {
-    Country: "Mongolia",
+  MN: {
     Population: 3517100,
     YearlyChangePct: 1.2,
     NetChange: 41560,
@@ -1859,10 +1613,8 @@ export const JSON_DATA = [
     MedianAge: 26.9,
     UrbanPopPct: 67.2,
     WorldSharePct: 0.043,
-    Code: "MN",
   },
-  {
-    Country: "Uruguay",
+  UY: {
     Population: 3384688,
     YearlyChangePct: -0.06,
     NetChange: -1900,
@@ -1873,10 +1625,8 @@ export const JSON_DATA = [
     MedianAge: 36.4,
     UrbanPopPct: null,
     WorldSharePct: 0.041,
-    Code: "UY",
   },
-  {
-    Country: "Puerto Rico",
+  PR: {
     Population: 3235289,
     YearlyChangePct: -0.21,
     NetChange: -6915,
@@ -1887,10 +1637,8 @@ export const JSON_DATA = [
     MedianAge: 45.8,
     UrbanPopPct: null,
     WorldSharePct: 0.039,
-    Code: "PR",
   },
-  {
-    Country: "Bosnia and Herzegovina",
+  BA: {
     Population: 3140095,
     YearlyChangePct: -0.76,
     NetChange: -24158,
@@ -1901,10 +1649,8 @@ export const JSON_DATA = [
     MedianAge: 45.7,
     UrbanPopPct: 56.3,
     WorldSharePct: 0.038,
-    Code: "BA",
   },
-  {
-    Country: "Qatar",
+  QA: {
     Population: 3115889,
     YearlyChangePct: 2.21,
     NetChange: 67466,
@@ -1915,10 +1661,8 @@ export const JSON_DATA = [
     MedianAge: 33.5,
     UrbanPopPct: 96.6,
     WorldSharePct: 0.038,
-    Code: "QA",
   },
-  {
-    Country: "Namibia",
+  NA: {
     Population: 3092816,
     YearlyChangePct: 2.07,
     NetChange: 62685,
@@ -1929,10 +1673,8 @@ export const JSON_DATA = [
     MedianAge: 21.3,
     UrbanPopPct: 54.4,
     WorldSharePct: 0.038,
-    Code: "NA",
   },
-  {
-    Country: "Moldova",
+  MD: {
     Population: 2996106,
     YearlyChangePct: -1.28,
     NetChange: -38855,
@@ -1943,10 +1685,8 @@ export const JSON_DATA = [
     MedianAge: 38.6,
     UrbanPopPct: 57.7,
     WorldSharePct: 0.036,
-    Code: "MD",
   },
-  {
-    Country: "Armenia",
+  AM: {
     Population: 2952365,
     YearlyChangePct: -0.72,
     NetChange: -21475,
@@ -1957,10 +1697,8 @@ export const JSON_DATA = [
     MedianAge: 36.6,
     UrbanPopPct: 63.8,
     WorldSharePct: 0.036,
-    Code: "AM",
   },
-  {
-    Country: "Jamaica",
+  JM: {
     Population: 2837077,
     YearlyChangePct: -0.07,
     NetChange: -2098,
@@ -1971,10 +1709,8 @@ export const JSON_DATA = [
     MedianAge: 32.8,
     UrbanPopPct: 60.2,
     WorldSharePct: 0.034,
-    Code: "JM",
   },
-  {
-    Country: "Lithuania",
+  LT: {
     Population: 2830144,
     YearlyChangePct: -1.01,
     NetChange: -28966,
@@ -1985,10 +1721,8 @@ export const JSON_DATA = [
     MedianAge: 42.3,
     UrbanPopPct: 68.2,
     WorldSharePct: 0.034,
-    Code: "LT",
   },
-  {
-    Country: "Gambia",
+  GM: {
     Population: 2822093,
     YearlyChangePct: 2.25,
     NetChange: 62105,
@@ -1999,10 +1733,8 @@ export const JSON_DATA = [
     MedianAge: 18.6,
     UrbanPopPct: 61.3,
     WorldSharePct: 0.034,
-    Code: "GM",
   },
-  {
-    Country: "Albania",
+  AL: {
     Population: 2771508,
     YearlyChangePct: -0.73,
     NetChange: -20257,
@@ -2013,10 +1745,8 @@ export const JSON_DATA = [
     MedianAge: 37.3,
     UrbanPopPct: 70.3,
     WorldSharePct: 0.034,
-    Code: "AL",
   },
-  {
-    Country: "Gabon",
+  GA: {
     Population: 2593130,
     YearlyChangePct: 2.13,
     NetChange: 54178,
@@ -2027,10 +1757,8 @@ export const JSON_DATA = [
     MedianAge: 21.5,
     UrbanPopPct: 83.7,
     WorldSharePct: 0.032,
-    Code: "GA",
   },
-  {
-    Country: "Botswana",
+  BW: {
     Population: 2562122,
     YearlyChangePct: 1.63,
     NetChange: 40983,
@@ -2041,10 +1769,8 @@ export const JSON_DATA = [
     MedianAge: 23.4,
     UrbanPopPct: 75.6,
     WorldSharePct: 0.031,
-    Code: "BW",
   },
-  {
-    Country: "Lesotho",
+  LS: {
     Population: 2363325,
     YearlyChangePct: 1.11,
     NetChange: 25902,
@@ -2055,10 +1781,8 @@ export const JSON_DATA = [
     MedianAge: 21.8,
     UrbanPopPct: 32.8,
     WorldSharePct: 0.029,
-    Code: "LS",
   },
-  {
-    Country: "Guinea-Bissau",
+  GW: {
     Population: 2249515,
     YearlyChangePct: 2.19,
     NetChange: 48163,
@@ -2069,10 +1793,8 @@ export const JSON_DATA = [
     MedianAge: 19.4,
     UrbanPopPct: 46.2,
     WorldSharePct: 0.027,
-    Code: "GW",
   },
-  {
-    Country: "Slovenia",
+  SI: {
     Population: 2117072,
     YearlyChangePct: -0.08,
     NetChange: -1625,
@@ -2083,10 +1805,8 @@ export const JSON_DATA = [
     MedianAge: 44.6,
     UrbanPopPct: 55.7,
     WorldSharePct: 0.026,
-    Code: "SI",
   },
-  {
-    Country: "Equatorial Guinea",
+  GQ: {
     Population: 1938431,
     YearlyChangePct: 2.43,
     NetChange: 45915,
@@ -2097,10 +1817,8 @@ export const JSON_DATA = [
     MedianAge: 20.9,
     UrbanPopPct: 63.6,
     WorldSharePct: 0.024,
-    Code: "GQ",
   },
-  {
-    Country: "Latvia",
+  LV: {
     Population: 1853559,
     YearlyChangePct: -0.98,
     NetChange: -18312,
@@ -2111,10 +1829,8 @@ export const JSON_DATA = [
     MedianAge: 43.6,
     UrbanPopPct: 67.5,
     WorldSharePct: 0.023,
-    Code: "LV",
   },
-  {
-    Country: "North Macedonia",
+  MK: {
     Population: 1813791,
     YearlyChangePct: -0.51,
     NetChange: -9218,
@@ -2125,10 +1841,8 @@ export const JSON_DATA = [
     MedianAge: 41,
     UrbanPopPct: 69.4,
     WorldSharePct: 0.022,
-    Code: "MK",
   },
-  {
-    Country: "Bahrain",
+  BH: {
     Population: 1643332,
     YearlyChangePct: 2.26,
     NetChange: 36283,
@@ -2139,10 +1853,8 @@ export const JSON_DATA = [
     MedianAge: 33.4,
     UrbanPopPct: null,
     WorldSharePct: 0.02,
-    Code: "BH",
   },
-  {
-    Country: "Trinidad and Tobago",
+  TT: {
     Population: 1511155,
     YearlyChangePct: 0.22,
     NetChange: 3373,
@@ -2153,10 +1865,8 @@ export const JSON_DATA = [
     MedianAge: 37.7,
     UrbanPopPct: 49.1,
     WorldSharePct: 0.018,
-    Code: "TT",
   },
-  {
-    Country: "Timor-Leste",
+  TL: {
     Population: 1418517,
     YearlyChangePct: 1.28,
     NetChange: 17879,
@@ -2167,10 +1877,8 @@ export const JSON_DATA = [
     MedianAge: 21.7,
     UrbanPopPct: 36,
     WorldSharePct: 0.017,
-    Code: "TL",
   },
-  {
-    Country: "Cyprus",
+  CY: {
     Population: 1370754,
     YearlyChangePct: 0.92,
     NetChange: 12472,
@@ -2181,10 +1889,8 @@ export const JSON_DATA = [
     MedianAge: 38.6,
     UrbanPopPct: 61.1,
     WorldSharePct: 0.017,
-    Code: "CY",
   },
-  {
-    Country: "Estonia",
+  EE: {
     Population: 1344232,
     YearlyChangePct: -1.2,
     NetChange: -16314,
@@ -2195,10 +1901,8 @@ export const JSON_DATA = [
     MedianAge: 42.8,
     UrbanPopPct: 66.9,
     WorldSharePct: 0.016,
-    Code: "EE",
   },
-  {
-    Country: "Mauritius",
+  MU: {
     Population: 1268280,
     YearlyChangePct: -0.23,
     NetChange: -2889,
@@ -2209,10 +1913,8 @@ export const JSON_DATA = [
     MedianAge: 37.8,
     UrbanPopPct: 41.5,
     WorldSharePct: 0.015,
-    Code: "MU",
   },
-  {
-    Country: "Eswatini",
+  SZ: {
     Population: 1256174,
     YearlyChangePct: 1.07,
     NetChange: 13352,
@@ -2223,10 +1925,8 @@ export const JSON_DATA = [
     MedianAge: 22.5,
     UrbanPopPct: 31.3,
     WorldSharePct: 0.015,
-    Code: "SZ",
   },
-  {
-    Country: "Djibouti",
+  DJ: {
     Population: 1184076,
     YearlyChangePct: 1.31,
     NetChange: 15354,
@@ -2237,10 +1937,8 @@ export const JSON_DATA = [
     MedianAge: 24.9,
     UrbanPopPct: 71.3,
     WorldSharePct: 0.014,
-    Code: "DJ",
   },
-  {
-    Country: "Fiji",
+  FJ: {
     Population: 933154,
     YearlyChangePct: 0.47,
     NetChange: 4370,
@@ -2251,10 +1949,8 @@ export const JSON_DATA = [
     MedianAge: 28.1,
     UrbanPopPct: 60.8,
     WorldSharePct: 0.011,
-    Code: "FJ",
   },
-  {
-    Country: "Comoros",
+  KM: {
     Population: 882847,
     YearlyChangePct: 1.87,
     NetChange: 16219,
@@ -2265,10 +1961,8 @@ export const JSON_DATA = [
     MedianAge: 20.6,
     UrbanPopPct: 33.6,
     WorldSharePct: 0.011,
-    Code: "KM",
   },
-  {
-    Country: "Réunion",
+  RE: {
     Population: 882405,
     YearlyChangePct: 0.43,
     NetChange: 3814,
@@ -2279,10 +1973,8 @@ export const JSON_DATA = [
     MedianAge: 38.1,
     UrbanPopPct: null,
     WorldSharePct: 0.011,
-    Code: "RE",
   },
-  {
-    Country: "Solomon Islands",
+  SB: {
     Population: 838645,
     YearlyChangePct: 2.37,
     NetChange: 19447,
@@ -2293,10 +1985,8 @@ export const JSON_DATA = [
     MedianAge: 20.7,
     UrbanPopPct: 22.8,
     WorldSharePct: 0.01,
-    Code: "SB",
   },
-  {
-    Country: "Guyana",
+  GY: {
     Population: 835986,
     YearlyChangePct: 0.59,
     NetChange: 4899,
@@ -2307,10 +1997,8 @@ export const JSON_DATA = [
     MedianAge: 26.2,
     UrbanPopPct: 26.6,
     WorldSharePct: 0.01,
-    Code: "GY",
   },
-  {
-    Country: "Bhutan",
+  BT: {
     Population: 796682,
     YearlyChangePct: 0.65,
     NetChange: 5158,
@@ -2321,10 +2009,8 @@ export const JSON_DATA = [
     MedianAge: 30.5,
     UrbanPopPct: 50.3,
     WorldSharePct: 0.0097,
-    Code: "BT",
   },
-  {
-    Country: "Macao",
+  MO: {
     Population: 722007,
     YearlyChangePct: 0.24,
     NetChange: 1745,
@@ -2335,10 +2021,8 @@ export const JSON_DATA = [
     MedianAge: 39.6,
     UrbanPopPct: 97.1,
     WorldSharePct: 0.0088,
-    Code: "MO",
   },
-  {
-    Country: "Luxembourg",
+  LU: {
     Population: 680453,
     YearlyChangePct: 1.1,
     NetChange: 7417,
@@ -2349,10 +2033,8 @@ export const JSON_DATA = [
     MedianAge: 39.5,
     UrbanPopPct: 87.2,
     WorldSharePct: 0.0083,
-    Code: "LU",
   },
-  {
-    Country: "Suriname",
+  SR: {
     Population: 639850,
     YearlyChangePct: 0.85,
     NetChange: 5419,
@@ -2363,10 +2045,8 @@ export const JSON_DATA = [
     MedianAge: 28.6,
     UrbanPopPct: 62.4,
     WorldSharePct: 0.0078,
-    Code: "SR",
   },
-  {
-    Country: "Montenegro",
+  ME: {
     Population: 632729,
     YearlyChangePct: -0.9,
     NetChange: -5750,
@@ -2377,10 +2057,8 @@ export const JSON_DATA = [
     MedianAge: 40,
     UrbanPopPct: 68.7,
     WorldSharePct: 0.0077,
-    Code: "ME",
   },
-  {
-    Country: "Western Sahara",
+  EH: {
     Population: 600904,
     YearlyChangePct: 1.76,
     NetChange: 10398,
@@ -2391,10 +2069,8 @@ export const JSON_DATA = [
     MedianAge: 32.6,
     UrbanPopPct: 97,
     WorldSharePct: 0.0073,
-    Code: "EH",
   },
-  {
-    Country: "Malta",
+  MT: {
     Population: 545405,
     YearlyChangePct: 1.07,
     NetChange: 5798,
@@ -2405,10 +2081,8 @@ export const JSON_DATA = [
     MedianAge: 41.1,
     UrbanPopPct: 76.5,
     WorldSharePct: 0.0066,
-    Code: "MT",
   },
-  {
-    Country: "Maldives",
+  MV: {
     Population: 529676,
     YearlyChangePct: 0.36,
     NetChange: 1877,
@@ -2419,10 +2093,8 @@ export const JSON_DATA = [
     MedianAge: 32.7,
     UrbanPopPct: 39.6,
     WorldSharePct: 0.0064,
-    Code: "MV",
   },
-  {
-    Country: "Cabo Verde",
+  CV: {
     Population: 527326,
     YearlyChangePct: 0.47,
     NetChange: 2449,
@@ -2433,10 +2105,8 @@ export const JSON_DATA = [
     MedianAge: 29,
     UrbanPopPct: 78.6,
     WorldSharePct: 0.0064,
-    Code: "CV",
   },
-  {
-    Country: "Brunei",
+  BN: {
     Population: 466330,
     YearlyChangePct: 0.78,
     NetChange: 3609,
@@ -2447,10 +2117,8 @@ export const JSON_DATA = [
     MedianAge: 32.7,
     UrbanPopPct: 80.1,
     WorldSharePct: 0.0057,
-    Code: "BN",
   },
-  {
-    Country: "Belize",
+  BZ: {
     Population: 422924,
     YearlyChangePct: 1.4,
     NetChange: 5852,
@@ -2461,10 +2129,8 @@ export const JSON_DATA = [
     MedianAge: 26.9,
     UrbanPopPct: 48.6,
     WorldSharePct: 0.0051,
-    Code: "BZ",
   },
-  {
-    Country: "Bahamas",
+  BS: {
     Population: 403033,
     YearlyChangePct: 0.44,
     NetChange: 1750,
@@ -2475,10 +2141,8 @@ export const JSON_DATA = [
     MedianAge: 35.3,
     UrbanPopPct: 88.4,
     WorldSharePct: 0.0049,
-    Code: "BS",
   },
-  {
-    Country: "Iceland",
+  IS: {
     Population: 398266,
     YearlyChangePct: 1.24,
     NetChange: 4870,
@@ -2489,10 +2153,8 @@ export const JSON_DATA = [
     MedianAge: 36.2,
     UrbanPopPct: 84,
     WorldSharePct: 0.0048,
-    Code: "IS",
   },
-  {
-    Country: "Guadeloupe",
+  GP: {
     Population: 373791,
     YearlyChangePct: -0.35,
     NetChange: -1315,
@@ -2503,10 +2165,8 @@ export const JSON_DATA = [
     MedianAge: 47.2,
     UrbanPopPct: null,
     WorldSharePct: 0.0045,
-    Code: "GP",
   },
-  {
-    Country: "Martinique",
+  MQ: {
     Population: 340439,
     YearlyChangePct: -0.8,
     NetChange: -2756,
@@ -2517,10 +2177,8 @@ export const JSON_DATA = [
     MedianAge: 49.7,
     UrbanPopPct: null,
     WorldSharePct: 0.0041,
-    Code: "MQ",
   },
-  {
-    Country: "Mayotte",
+  YT: {
     Population: 337011,
     YearlyChangePct: 3.22,
     NetChange: 10506,
@@ -2531,10 +2189,8 @@ export const JSON_DATA = [
     MedianAge: 17.1,
     UrbanPopPct: 41.4,
     WorldSharePct: 0.0041,
-    Code: "YT",
   },
-  {
-    Country: "Vanuatu",
+  VU: {
     Population: 335169,
     YearlyChangePct: 2.26,
     NetChange: 7392,
@@ -2545,10 +2201,8 @@ export const JSON_DATA = [
     MedianAge: 20.3,
     UrbanPopPct: 25.4,
     WorldSharePct: 0.0041,
-    Code: "VU",
   },
-  {
-    Country: "French Guiana",
+  GF: {
     Population: 313666,
     YearlyChangePct: 1.67,
     NetChange: 5144,
@@ -2559,10 +2213,8 @@ export const JSON_DATA = [
     MedianAge: 25,
     UrbanPopPct: 94.5,
     WorldSharePct: 0.0038,
-    Code: "GF",
   },
-  {
-    Country: "New Caledonia",
+  NC: {
     Population: 295333,
     YearlyChangePct: 0.92,
     NetChange: 2694,
@@ -2573,10 +2225,8 @@ export const JSON_DATA = [
     MedianAge: 34.5,
     UrbanPopPct: 75.7,
     WorldSharePct: 0.0036,
-    Code: "NC",
   },
-  {
-    Country: "Barbados",
+  BB: {
     Population: 282623,
     YearlyChangePct: 0.06,
     NetChange: 156,
@@ -2587,10 +2237,8 @@ export const JSON_DATA = [
     MedianAge: 39.4,
     UrbanPopPct: 32.5,
     WorldSharePct: 0.0034,
-    Code: "BB",
   },
-  {
-    Country: "French Polynesia",
+  PF: {
     Population: 282465,
     YearlyChangePct: 0.23,
     NetChange: 658,
@@ -2601,10 +2249,8 @@ export const JSON_DATA = [
     MedianAge: 36.1,
     UrbanPopPct: 65.9,
     WorldSharePct: 0.0034,
-    Code: "PF",
   },
-  {
-    Country: "Sao Tome & Principe",
+  ST: {
     Population: 240254,
     YearlyChangePct: 2,
     NetChange: 4718,
@@ -2615,10 +2261,8 @@ export const JSON_DATA = [
     MedianAge: 19.5,
     UrbanPopPct: 78.2,
     WorldSharePct: 0.0029,
-    Code: "ST",
   },
-  {
-    Country: "Samoa",
+  WS: {
     Population: 219306,
     YearlyChangePct: 0.59,
     NetChange: 1287,
@@ -2629,10 +2273,8 @@ export const JSON_DATA = [
     MedianAge: 19.8,
     UrbanPopPct: 16.3,
     WorldSharePct: 0.0027,
-    Code: "WS",
   },
-  {
-    Country: "Curaçao",
+  CW: {
     Population: 185487,
     YearlyChangePct: 0,
     NetChange: 5,
@@ -2643,10 +2285,8 @@ export const JSON_DATA = [
     MedianAge: 38.7,
     UrbanPopPct: 80.8,
     WorldSharePct: 0.0023,
-    Code: "CW",
   },
-  {
-    Country: "Saint Lucia",
+  LC: {
     Population: 180149,
     YearlyChangePct: 0.23,
     NetChange: 405,
@@ -2657,10 +2297,8 @@ export const JSON_DATA = [
     MedianAge: 34.6,
     UrbanPopPct: 19.9,
     WorldSharePct: 0.0022,
-    Code: "LC",
   },
-  {
-    Country: "Guam",
+  GU: {
     Population: 168999,
     YearlyChangePct: 0.73,
     NetChange: 1222,
@@ -2671,10 +2309,8 @@ export const JSON_DATA = [
     MedianAge: 31.5,
     UrbanPopPct: 98.8,
     WorldSharePct: 0.0021,
-    Code: "GU",
   },
-  {
-    Country: "Kiribati",
+  KI: {
     Population: 136488,
     YearlyChangePct: 1.46,
     NetChange: 1970,
@@ -2685,10 +2321,8 @@ export const JSON_DATA = [
     MedianAge: 22.9,
     UrbanPopPct: 57.3,
     WorldSharePct: 0.0017,
-    Code: "KI",
   },
-  {
-    Country: "Seychelles",
+  SC: {
     Population: 132779,
     YearlyChangePct: 1.81,
     NetChange: 2361,
@@ -2699,10 +2333,8 @@ export const JSON_DATA = [
     MedianAge: 34.3,
     UrbanPopPct: 43.8,
     WorldSharePct: 0.0016,
-    Code: "SC",
   },
-  {
-    Country: "Grenada",
+  GD: {
     Population: 117303,
     YearlyChangePct: 0.08,
     NetChange: 96,
@@ -2713,10 +2345,8 @@ export const JSON_DATA = [
     MedianAge: 34.4,
     UrbanPopPct: 35.5,
     WorldSharePct: 0.0014,
-    Code: "GD",
   },
-  {
-    Country: "Micronesia",
+  FM: {
     Population: 113683,
     YearlyChangePct: 0.46,
     NetChange: 523,
@@ -2727,10 +2357,8 @@ export const JSON_DATA = [
     MedianAge: 23.3,
     UrbanPopPct: 23.5,
     WorldSharePct: 0.0014,
-    Code: "FM",
   },
-  {
-    Country: "Aruba",
+  AW: {
     Population: 108147,
     YearlyChangePct: 0.07,
     NetChange: 81,
@@ -2741,10 +2369,8 @@ export const JSON_DATA = [
     MedianAge: 41.5,
     UrbanPopPct: 44.7,
     WorldSharePct: 0.0013,
-    Code: "AW",
   },
-  {
-    Country: "Tonga",
+  TO: {
     Population: 103742,
     YearlyChangePct: -0.42,
     NetChange: -433,
@@ -2755,10 +2381,8 @@ export const JSON_DATA = [
     MedianAge: 20.8,
     UrbanPopPct: 26,
     WorldSharePct: 0.0013,
-    Code: "TO",
   },
-  {
-    Country: "St. Vincent & Grenadines",
+  VC: {
     Population: 99924,
     YearlyChangePct: -0.69,
     NetChange: -692,
@@ -2769,10 +2393,8 @@ export const JSON_DATA = [
     MedianAge: 34.4,
     UrbanPopPct: 61.6,
     WorldSharePct: 0.0012,
-    Code: "VC",
   },
-  {
-    Country: "Antigua and Barbuda",
+  AG: {
     Population: 94209,
     YearlyChangePct: 0.47,
     NetChange: 437,
@@ -2783,10 +2405,8 @@ export const JSON_DATA = [
     MedianAge: 36.3,
     UrbanPopPct: 28.5,
     WorldSharePct: 0.0011,
-    Code: "AG",
   },
-  {
-    Country: "U.S. Virgin Islands",
+  VI: {
     Population: 84138,
     YearlyChangePct: -0.9,
     NetChange: -767,
@@ -2797,10 +2417,8 @@ export const JSON_DATA = [
     MedianAge: 44.8,
     UrbanPopPct: null,
     WorldSharePct: 0.001,
-    Code: "VI",
   },
-  {
-    Country: "Isle of Man",
+  IM: {
     Population: 84118,
     YearlyChangePct: -0.05,
     NetChange: -42,
@@ -2811,10 +2429,8 @@ export const JSON_DATA = [
     MedianAge: 46.1,
     UrbanPopPct: 56.7,
     WorldSharePct: 0.001,
-    Code: "IM",
   },
-  {
-    Country: "Andorra",
+  AD: {
     Population: 82904,
     YearlyChangePct: 1.18,
     NetChange: 966,
@@ -2825,10 +2441,8 @@ export const JSON_DATA = [
     MedianAge: 43.9,
     UrbanPopPct: 82.3,
     WorldSharePct: 0.001,
-    Code: "AD",
   },
-  {
-    Country: "Cayman Islands",
+  KY: {
     Population: 75844,
     YearlyChangePct: 1.86,
     NetChange: 1387,
@@ -2839,10 +2453,8 @@ export const JSON_DATA = [
     MedianAge: 38.7,
     UrbanPopPct: 89.1,
     WorldSharePct: 0.00092,
-    Code: "KY",
   },
-  {
-    Country: "Dominica",
+  DM: {
     Population: 65871,
     YearlyChangePct: -0.5,
     NetChange: -334,
@@ -2853,10 +2465,8 @@ export const JSON_DATA = [
     MedianAge: 36.3,
     UrbanPopPct: 84.5,
     WorldSharePct: 0.0008,
-    Code: "DM",
   },
-  {
-    Country: "Bermuda",
+  BM: {
     Population: 64555,
     YearlyChangePct: -0.13,
     NetChange: -81,
@@ -2867,10 +2477,8 @@ export const JSON_DATA = [
     MedianAge: 46,
     UrbanPopPct: 93,
     WorldSharePct: 0.00078,
-    Code: "BM",
   },
-  {
-    Country: "Faeroe Islands",
+  FO: {
     Population: 56002,
     YearlyChangePct: 1.09,
     NetChange: 602,
@@ -2881,10 +2489,8 @@ export const JSON_DATA = [
     MedianAge: 37.1,
     UrbanPopPct: 39.5,
     WorldSharePct: 0.00068,
-    Code: "FO",
   },
-  {
-    Country: "Greenland",
+  GL: {
     Population: 55745,
     YearlyChangePct: -0.17,
     NetChange: -95,
@@ -2895,10 +2501,8 @@ export const JSON_DATA = [
     MedianAge: 35.1,
     UrbanPopPct: 90.7,
     WorldSharePct: 0.00068,
-    Code: "GL",
   },
-  {
-    Country: "Saint Kitts & Nevis",
+  KN: {
     Population: 46922,
     YearlyChangePct: 0.17,
     NetChange: 79,
@@ -2909,10 +2513,8 @@ export const JSON_DATA = [
     MedianAge: 36.2,
     UrbanPopPct: 39.4,
     WorldSharePct: 0.00057,
-    Code: "KN",
   },
-  {
-    Country: "Turks and Caicos",
+  TC: {
     Population: 46855,
     YearlyChangePct: 0.69,
     NetChange: 320,
@@ -2923,10 +2525,8 @@ export const JSON_DATA = [
     MedianAge: 39.2,
     UrbanPopPct: 79.4,
     WorldSharePct: 0.00057,
-    Code: "TC",
   },
-  {
-    Country: "American Samoa",
+  AS: {
     Population: 46029,
     YearlyChangePct: -1.57,
     NetChange: -736,
@@ -2937,10 +2537,8 @@ export const JSON_DATA = [
     MedianAge: 29,
     UrbanPopPct: null,
     WorldSharePct: 0.00056,
-    Code: "AS",
   },
-  {
-    Country: "Sint Maarten",
+  SX: {
     Population: 43923,
     YearlyChangePct: 1.32,
     NetChange: 573,
@@ -2951,10 +2549,8 @@ export const JSON_DATA = [
     MedianAge: 41.8,
     UrbanPopPct: 99.8,
     WorldSharePct: 0.00053,
-    Code: "SX",
   },
-  {
-    Country: "Northern Mariana Islands",
+  MP: {
     Population: 43541,
     YearlyChangePct: -1.66,
     NetChange: -737,
@@ -2965,10 +2561,8 @@ export const JSON_DATA = [
     MedianAge: 38,
     UrbanPopPct: null,
     WorldSharePct: 0.00053,
-    Code: "MP",
   },
-  {
-    Country: "Liechtenstein",
+  LI: {
     Population: 40128,
     YearlyChangePct: 0.65,
     NetChange: 258,
@@ -2979,10 +2573,8 @@ export const JSON_DATA = [
     MedianAge: 44.5,
     UrbanPopPct: 14.7,
     WorldSharePct: 0.00049,
-    Code: "LI",
   },
-  {
-    Country: "Gibraltar",
+  GI: {
     Population: 40126,
     YearlyChangePct: 2.03,
     NetChange: 797,
@@ -2993,10 +2585,8 @@ export const JSON_DATA = [
     MedianAge: 38.8,
     UrbanPopPct: 88.5,
     WorldSharePct: 0.00049,
-    Code: "GI",
   },
-  {
-    Country: "British Virgin Islands",
+  VG: {
     Population: 39732,
     YearlyChangePct: 0.66,
     NetChange: 261,
@@ -3007,10 +2597,8 @@ export const JSON_DATA = [
     MedianAge: 38.6,
     UrbanPopPct: 43.4,
     WorldSharePct: 0.00048,
-    Code: "VG",
   },
-  {
-    Country: "Monaco",
+  MC: {
     Population: 38341,
     YearlyChangePct: -0.75,
     NetChange: -290,
@@ -3021,10 +2609,8 @@ export const JSON_DATA = [
     MedianAge: 53.6,
     UrbanPopPct: null,
     WorldSharePct: 0.00047,
-    Code: "MC",
   },
-  {
-    Country: "Marshall Islands",
+  MH: {
     Population: 36282,
     YearlyChangePct: -3.37,
     NetChange: -1266,
@@ -3035,10 +2621,8 @@ export const JSON_DATA = [
     MedianAge: 20.4,
     UrbanPopPct: null,
     WorldSharePct: 0.00044,
-    Code: "MH",
   },
-  {
-    Country: "San Marino",
+  SM: {
     Population: 33572,
     YearlyChangePct: -0.03,
     NetChange: -9,
@@ -3049,10 +2633,8 @@ export const JSON_DATA = [
     MedianAge: 48.6,
     UrbanPopPct: null,
     WorldSharePct: 0.00041,
-    Code: "SM",
   },
-  {
-    Country: "Palau",
+  PW: {
     Population: 17663,
     YearlyChangePct: -0.18,
     NetChange: -32,
@@ -3063,10 +2645,8 @@ export const JSON_DATA = [
     MedianAge: 38.5,
     UrbanPopPct: null,
     WorldSharePct: 0.00021,
-    Code: "PW",
   },
-  {
-    Country: "Anguilla",
+  AI: {
     Population: 14728,
     YearlyChangePct: 0.89,
     NetChange: 130,
@@ -3077,10 +2657,8 @@ export const JSON_DATA = [
     MedianAge: 38.7,
     UrbanPopPct: null,
     WorldSharePct: 0.00018,
-    Code: "AI",
   },
-  {
-    Country: "Cook Islands",
+  CK: {
     Population: 13263,
     YearlyChangePct: -3.39,
     NetChange: -466,
@@ -3091,10 +2669,8 @@ export const JSON_DATA = [
     MedianAge: 37.1,
     UrbanPopPct: null,
     WorldSharePct: 0.00016,
-    Code: "CK",
   },
-  {
-    Country: "Nauru",
+  NR: {
     Population: 12025,
     YearlyChangePct: 0.65,
     NetChange: 78,
@@ -3105,10 +2681,8 @@ export const JSON_DATA = [
     MedianAge: 20.2,
     UrbanPopPct: 94.2,
     WorldSharePct: 0.00015,
-    Code: "NR",
   },
-  {
-    Country: "Saint Barthelemy",
+  BL: {
     Population: 11414,
     YearlyChangePct: 1.39,
     NetChange: 156,
@@ -3119,10 +2693,8 @@ export const JSON_DATA = [
     MedianAge: 39,
     UrbanPopPct: null,
     WorldSharePct: 0.00014,
-    Code: "BL",
   },
-  {
-    Country: "Wallis & Futuna",
+  WF: {
     Population: 11194,
     YearlyChangePct: -0.74,
     NetChange: -83,
@@ -3133,10 +2705,8 @@ export const JSON_DATA = [
     MedianAge: 38.2,
     UrbanPopPct: null,
     WorldSharePct: 0.00014,
-    Code: "WF",
   },
-  {
-    Country: "Tuvalu",
+  TV: {
     Population: 9492,
     YearlyChangePct: -1.6,
     NetChange: -154,
@@ -3147,10 +2717,8 @@ export const JSON_DATA = [
     MedianAge: 24.2,
     UrbanPopPct: 86,
     WorldSharePct: 0.00012,
-    Code: "TV",
   },
-  {
-    Country: "Saint Pierre & Miquelon",
+  PM: {
     Population: 5574,
     YearlyChangePct: -0.96,
     NetChange: -54,
@@ -3161,10 +2729,8 @@ export const JSON_DATA = [
     MedianAge: 47.2,
     UrbanPopPct: null,
     WorldSharePct: 0.000068,
-    Code: "PM",
   },
-  {
-    Country: "Saint Helena",
+  SH: {
     Population: 5197,
     YearlyChangePct: -0.76,
     NetChange: -40,
@@ -3175,10 +2741,8 @@ export const JSON_DATA = [
     MedianAge: 50.9,
     UrbanPopPct: 33.4,
     WorldSharePct: 0.000063,
-    Code: "SH",
   },
-  {
-    Country: "Montserrat",
+  MS: {
     Population: 4359,
     YearlyChangePct: -0.68,
     NetChange: -30,
@@ -3189,10 +2753,8 @@ export const JSON_DATA = [
     MedianAge: 41.6,
     UrbanPopPct: 11.5,
     WorldSharePct: 0.000053,
-    Code: "MS",
   },
-  {
-    Country: "Falkland Islands",
+  FK: {
     Population: 3469,
     YearlyChangePct: -0.03,
     NetChange: -1,
@@ -3203,10 +2765,8 @@ export const JSON_DATA = [
     MedianAge: 42.8,
     UrbanPopPct: 68,
     WorldSharePct: 0.000042,
-    Code: "FK",
   },
-  {
-    Country: "Tokelau",
+  TK: {
     Population: 2608,
     YearlyChangePct: 4.07,
     NetChange: 102,
@@ -3217,10 +2777,8 @@ export const JSON_DATA = [
     MedianAge: 27.3,
     UrbanPopPct: null,
     WorldSharePct: 0.000032,
-    Code: "TK",
   },
-  {
-    Country: "Niue",
+  NU: {
     Population: 1821,
     YearlyChangePct: 0.11,
     NetChange: 2,
@@ -3231,10 +2789,8 @@ export const JSON_DATA = [
     MedianAge: 35.7,
     UrbanPopPct: 44.5,
     WorldSharePct: 0.000022,
-    Code: "NU",
   },
-  {
-    Country: "Holy See",
+  VA: {
     Population: 501,
     YearlyChangePct: 1.01,
     NetChange: 5,
@@ -3245,6 +2801,6 @@ export const JSON_DATA = [
     MedianAge: 57.4,
     UrbanPopPct: null,
     WorldSharePct: 0.0000061,
-    Code: "VA",
   },
-];
+};
+
